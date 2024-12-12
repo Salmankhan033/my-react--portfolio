@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/Umair-Khan-Portfolio/static/css/main.c6fd6523.css",
+    "main.js": "/Umair-Khan-Portfolio/static/js/main.f72ac22b.js",
+    "static/media/avatar.png": "/Umair-Khan-Portfolio/static/media/avatar.968339141892d6866904.png",
+    "static/media/main-image.png": "/Umair-Khan-Portfolio/static/media/main-image.9d82e8bbaa89c2e797be.png",
+    "static/media/Reko.png": "/Umair-Khan-Portfolio/static/media/Reko.367f218336bee27ab040.png",
+    "static/media/AmisChoice.png": "/Umair-Khan-Portfolio/static/media/AmisChoice.5103fd4a292d1ee80626.png",
+    "static/media/Motmaina2.png": "/Umair-Khan-Portfolio/static/media/Motmaina2.39f008be0f8fdd95c0bf.png",
+    "static/media/Giveaway.png": "/Umair-Khan-Portfolio/static/media/Giveaway.29ce48babf13746fd9a7.png",
+    "static/media/Motmaina1.png": "/Umair-Khan-Portfolio/static/media/Motmaina1.0daf3dd8ddac19ee58fa.png",
+    "static/media/Book.png": "/Umair-Khan-Portfolio/static/media/Book.c3fee9f42b482226e19c.png",
+    "static/media/Sensebod.png": "/Umair-Khan-Portfolio/static/media/Sensebod.8a44c38c3e4e07ffbaff.png",
+    "static/media/MAS.png": "/Umair-Khan-Portfolio/static/media/MAS.94034627dbda9cdff503.png",
+    "static/media/Fast.png": "/Umair-Khan-Portfolio/static/media/Fast.5e05480670ca6efd1685.png",
+    "static/media/VIP.jpeg": "/Umair-Khan-Portfolio/static/media/VIP.3f06d1da150247259323.jpeg",
+    "static/media/PlusOne.jpeg": "/Umair-Khan-Portfolio/static/media/PlusOne.31e4602023714408f125.jpeg",
+    "static/media/slick.svg": "/Umair-Khan-Portfolio/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/Umair-Khan-Portfolio/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/Umair-Khan-Portfolio/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "index.html": "/Umair-Khan-Portfolio/index.html",
+    "static/media/slick.woff": "/Umair-Khan-Portfolio/static/media/slick.295183786cd8a1389865.woff",
+    "main.c6fd6523.css.map": "/Umair-Khan-Portfolio/static/css/main.c6fd6523.css.map",
+    "main.f72ac22b.js.map": "/Umair-Khan-Portfolio/static/js/main.f72ac22b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c6fd6523.css",
+    "static/js/main.f72ac22b.js"
+  ]
+}
