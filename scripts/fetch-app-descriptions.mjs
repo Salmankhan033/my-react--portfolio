@@ -153,7 +153,7 @@ const projects = [
   { name: "CatPricePro", href: "https://apps.apple.com/pk/app/catpricepro/id6759843236", android: "https://play.google.com/store/apps/details?id=com.fedebenalua.catpricepro" },
   { name: "Boda - Yomecaso", href: "https://apps.apple.com/pk/app/boda-yomecaso/id6756235262", android: "https://play.google.com/store/apps/details?id=com.weddingplanner.boda.yomecaso" },
   { name: "Praynet", android: "https://play.google.com/store/apps/details?id=com.praynet.prayer" },
-  { name: "Ritmo 101.9", href: "https://apps.apple.com/pk/app/ritmo-101-9/id6469441719" },
+  { name: "Ritmo 101.9", href: "https://apps.apple.com/pk/app/ritmo-101-9/id6469441719",android:"https://play.google.com/store/apps/details?id=com.ritmo1019" },
   { name: "Tradeando", href: "https://apps.apple.com/us/app/tradeando/id6755815321" },
   { name: "Mostagbalik", android: "https://play.google.com/store/apps/details?id=com.mostagbalik" },
   { name: "QR Scanner Generate", href: "https://apps.apple.com/pk/app/qr-scanner-generate/id6753979837" },

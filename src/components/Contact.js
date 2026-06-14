@@ -90,8 +90,8 @@ export default function Contact() {
           data-aos="fade-up"
         >
           <a
-            href={`${process.env.PUBLIC_URL}/Updated-My-CV.pdf`}
-            download="Salman KHAN CV.pdf"
+            href={`${process.env.PUBLIC_URL}/salman_rn.pdf`}
+            download="salman_rn.pdf"
             className="btn btn-primary"
           >
             Download CV

@@ -89,8 +89,8 @@ export default function Hero() {
 
           <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-x-3">
             <a
-              href={`${process.env.PUBLIC_URL}/Updated-My-CV.pdf`}
-              download="Salman KHAN CV.pdf"
+              href={`${process.env.PUBLIC_URL}/salman_rn.pdf`}
+              download="salman_rn.pdf"
               className="btn btn-outline btn-sm border-base-300/70"
             >
               Download CV
@@ -154,8 +154,8 @@ export default function Hero() {
                 </Link>
               ))}
               <a
-                href={`${process.env.PUBLIC_URL}/Updated-My-CV.pdf`}
-                download="Salman KHAN CV.pdf"
+                href={`${process.env.PUBLIC_URL}/salman_rn.pdf`}
+                download="salman_rn.pdf"
                 className="block rounded-xl px-3 py-3 text-base font-semibold hover:bg-base-200/60"
               >
                 Download CV
@@ -239,8 +239,8 @@ export default function Hero() {
                   Hire Me
                 </Link>
                 <a
-                  href={`${process.env.PUBLIC_URL}/Updated-My-CV.pdf`}
-                  download="Salman KHAN CV.pdf"
+                  href={`${process.env.PUBLIC_URL}/salman_rn.pdf`}
+                  download="salman_rn.pdf"
                   className="btn btn-ghost"
                 >
                   Download CV

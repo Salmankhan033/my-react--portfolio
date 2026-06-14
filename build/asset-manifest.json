@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.6a09a59f.css",
-    "main.js": "/portfolio/static/js/main.f646a173.js",
+    "main.js": "/portfolio/static/js/main.0e7b1a9b.js",
     "static/media/main-image.png": "/portfolio/static/media/main-image.7046c6a8f2ba3724a33b.png",
     "static/media/avatar.png": "/portfolio/static/media/avatar.54a3b876d58b4b9559f9.png",
     "static/media/abc-123-kids-learn-play.jpg": "/portfolio/static/media/abc-123-kids-learn-play.31b8b37cd9571dffcaec.jpg",
@@ -35,10 +35,10 @@
     "index.html": "/portfolio/index.html",
     "static/media/slick.woff": "/portfolio/static/media/slick.295183786cd8a1389865.woff",
     "main.6a09a59f.css.map": "/portfolio/static/css/main.6a09a59f.css.map",
-    "main.f646a173.js.map": "/portfolio/static/js/main.f646a173.js.map"
+    "main.0e7b1a9b.js.map": "/portfolio/static/js/main.0e7b1a9b.js.map"
   },
   "entrypoints": [
     "static/css/main.6a09a59f.css",
-    "static/js/main.f646a173.js"
+    "static/js/main.0e7b1a9b.js"
   ]
 }
