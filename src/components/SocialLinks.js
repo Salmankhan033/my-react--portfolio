@@ -3,7 +3,7 @@ const platforms = [
     id: "linkedin",
     name: "LinkedIn",
     label: "Connect professionally",
-    href: "https://www.linkedin.com/in/salman-mobileappdev/",
+    href: "https://www.linkedin.com/in/salman-reactnative-mobileapp/",
     color: "hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/10",
     icon: (
       <svg viewBox="0 0 16 16" fill="currentColor" className="h-5 w-5" aria-hidden="true">
