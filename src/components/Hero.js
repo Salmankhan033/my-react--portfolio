@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
-import pfp from "../avatar.png";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -9,9 +8,9 @@ import {
 } from "@heroicons/react/24/outline";
 import { Link } from "react-scroll";
 import { TypeAnimation } from "react-type-animation";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import SocialLinks from "./SocialLinks";
+
+const pfp = `${process.env.PUBLIC_URL}/hero-photo.jpg`;
 
 const navigation = [
   { name: "About", id: "about" },
@@ -31,10 +30,6 @@ export default function Hero() {
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
 
-  useEffect(() => {
-    AOS.init({ duration: 2000 });
-  }, []);
-
   const handleToggle = (e) => {
     setTheme(e.target.checked ? "premiumLight" : "premiumDark");
   };
@@ -45,7 +40,7 @@ export default function Hero() {
     <div>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-base-300/60 bg-base-100/70 backdrop-blur-xl">
         <nav
-          className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8"
+          className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 px-6 py-4 lg:px-8"
           aria-label="Global"
         >
           <Link
@@ -54,7 +49,7 @@ export default function Hero() {
             smooth={true}
             offset={50}
             duration={500}
-            className="-m-1.5 cursor-pointer p-1.5 text-lg font-bold tracking-tight"
+            className="-m-1.5 cursor-pointer p-1.5 font-heading text-lg font-bold tracking-tight"
           >
             Salman Khan
           </Link>
@@ -177,7 +172,7 @@ export default function Hero() {
                 Available for freelance & remote work
               </div>
 
-              <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
+              <h1 className="mt-6 font-heading text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
                 Salman Khan
               </h1>
 
@@ -257,7 +252,7 @@ export default function Hero() {
                     key={stat.label}
                     className="rounded-2xl border border-base-300/60 bg-base-200/40 px-3 py-4 text-center backdrop-blur-xl sm:px-4"
                   >
-                    <div className="text-xl font-bold sm:text-2xl">{stat.value}</div>
+                    <div className="font-heading text-xl font-bold sm:text-2xl">{stat.value}</div>
                     <div className="mt-1 text-[11px] opacity-75 sm:text-xs">
                       {stat.label}
                     </div>
@@ -267,32 +262,46 @@ export default function Hero() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="relative mx-auto w-full max-w-md">
-                <div className="absolute -inset-4 rounded-[2.25rem] bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/20 blur-2xl" />
-                <div className="relative rounded-[2.25rem] border border-base-300/60 bg-base-200/40 p-6 shadow-2xl shadow-primary/10 backdrop-blur-xl">
-                  <div className="flex justify-center">
+              <div className="relative mx-auto w-full max-w-sm">
+                <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-primary/25 via-secondary/15 to-accent/15 blur-3xl" />
+
+                <div className="relative overflow-hidden rounded-[2rem] border border-base-300/60 bg-base-200/40 shadow-2xl shadow-primary/10 backdrop-blur-xl">
+                  <div className="relative aspect-[4/5] w-full overflow-hidden">
                     <img
                       src={pfp}
-                      alt="Salman Khan"
-                      className="h-64 w-64 rounded-full object-cover ring-2 ring-primary/30 shadow-2xl sm:h-72 sm:w-72"
+                      alt="Salman Khan — React Native & Mobile App Developer"
+                      className="h-full w-full object-cover object-top"
                     />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base-100/90 via-transparent to-transparent" />
                   </div>
 
-                  <div className="mt-6 rounded-2xl border border-base-300/60 bg-base-100/40 px-4 py-4">
+                  <div className="relative -mt-8 rounded-t-[1.75rem] bg-base-200/70 px-5 pb-5 pt-5 backdrop-blur-xl">
                     <div className="flex items-center justify-between">
-                      <span className="font-semibold">Open to opportunities</span>
-                      <span className="badge badge-success badge-outline badge-sm">
+                      <span className="font-heading text-sm font-semibold">
+                        Open to opportunities
+                      </span>
+                      <span className="badge badge-success badge-outline badge-sm gap-1">
+                        <span className="h-1.5 w-1.5 rounded-full bg-success" />
                         Online
                       </span>
                     </div>
-                    <p className="mt-2 text-sm opacity-75">
+                    <p className="mt-1.5 text-sm opacity-75">
                       Mobile apps, web apps, ASO & store publishing.
                     </p>
+                    <div className="mt-4">
+                      <SocialLinks variant="square" />
+                    </div>
                   </div>
+                </div>
 
-                  <div className="mt-5 flex justify-center">
-                    <SocialLinks variant="square" />
-                  </div>
+                <div className="absolute -left-5 top-8 hidden rounded-2xl border border-base-300/60 bg-base-100/90 px-4 py-3 shadow-xl backdrop-blur-xl sm:block">
+                  <p className="font-heading text-xl font-extrabold text-primary">7+</p>
+                  <p className="text-[11px] font-medium opacity-70">Years Experience</p>
+                </div>
+
+                <div className="absolute -right-5 top-1/3 hidden rounded-2xl border border-base-300/60 bg-base-100/90 px-4 py-3 shadow-xl backdrop-blur-xl sm:block">
+                  <p className="font-heading text-xl font-extrabold text-secondary">30+</p>
+                  <p className="text-[11px] font-medium opacity-70">Apps Shipped</p>
                 </div>
               </div>
             </div>

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-scroll";
 import {
   MapPinIcon,
@@ -6,8 +5,6 @@ import {
   RocketLaunchIcon,
   GlobeAltIcon,
 } from "@heroicons/react/24/outline";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import SocialLinks from "./SocialLinks";
 
 const highlights = [
@@ -34,10 +31,6 @@ const highlights = [
 ];
 
 export default function Contact() {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
-
   return (
     <section className="relative py-24 sm:py-32" id="contact">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -48,7 +41,7 @@ export default function Contact() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-lg leading-7 opacity-80">Ready to start?</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
+          <p className="mt-2 font-heading text-4xl font-bold tracking-tight sm:text-6xl">
             Let&apos;s Work Together
           </p>
           <p className="mt-4 text-sm leading-7 opacity-70 sm:text-base">
@@ -76,7 +69,7 @@ export default function Contact() {
         <div className="mx-auto mt-12 max-w-3xl" data-aos="zoom-in">
           <div className="rounded-3xl border border-base-300/60 bg-base-200/60 p-6 shadow-xl shadow-primary/5 backdrop-blur-xl sm:p-8">
             <div className="mb-6 text-center">
-              <p className="text-xl font-bold">Connect with me</p>
+              <p className="font-heading text-xl font-bold">Connect with me</p>
               <p className="mt-2 text-sm opacity-70">
                 Choose a platform below to discuss your next mobile or web project.
               </p>

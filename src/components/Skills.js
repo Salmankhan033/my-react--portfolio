@@ -1,7 +1,3 @@
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 const skillGroups = [
   {
     title: "React Native & Mobile",
@@ -110,16 +106,12 @@ const skillGroups = [
 ];
 
 export default function Skills() {
-  useEffect(() => {
-    AOS.init({ duration: 2000 });
-  }, []);
-
   return (
     <div className="py-24 sm:py-32" id="skills">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-xl leading-7 opacity-80">Explore my</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
+          <p className="mt-2 font-heading text-4xl font-bold tracking-tight sm:text-6xl">
             Skills
           </p>
           <p className="mt-4 text-sm leading-7 opacity-70 sm:text-base">
@@ -136,7 +128,7 @@ export default function Skills() {
               data-aos="zoom-in"
             >
               <div className="flex items-center justify-between gap-3">
-                <p className="text-xl font-bold">{group.title}</p>
+                <p className="font-heading text-xl font-bold">{group.title}</p>
                 <span className={`badge shrink-0 ${group.badgeClass}`}>
                   {group.badge}
                 </span>

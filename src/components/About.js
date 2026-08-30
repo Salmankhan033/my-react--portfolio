@@ -1,13 +1,10 @@
-import { useEffect } from "react";
 import {
   MapPinIcon,
   CalendarIcon,
   AcademicCapIcon,
   BriefcaseIcon,
 } from "@heroicons/react/20/solid";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import MainImage from "../projectImages/main-image.png";
+import MainImage from "../projectImages/about-photo.jpg";
 
 const features = [
   { name: "Age", description: "25 years old", icon: CalendarIcon },
@@ -30,17 +27,13 @@ const education = [
 ];
 
 export default function About() {
-  useEffect(() => {
-    AOS.init({ duration: 2000 });
-  }, []);
-
   return (
     <section className="relative px-6 py-24 sm:py-32" id="about">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div data-aos="fade-right">
             <h2 className="text-lg leading-7 opacity-80">Get to know more</h2>
-            <p className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
+            <p className="mt-2 font-heading text-4xl font-bold tracking-tight sm:text-5xl">
               About Me
             </p>
             <p className="mt-6 text-lg leading-8 opacity-85">
@@ -71,9 +64,9 @@ export default function About() {
           <div className="relative" data-aos="fade-left">
             <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/20 to-secondary/10 blur-2xl" />
             <img
-              className="relative w-full max-w-lg rounded-3xl border border-base-300/60 object-cover shadow-2xl shadow-primary/10 lg:ml-auto"
+              className="relative aspect-[4/5] w-full max-w-lg rounded-3xl border border-base-300/60 object-cover object-top shadow-2xl shadow-primary/10 lg:ml-auto"
               src={MainImage}
-              alt="Salman Khan at work"
+              alt="Salman Khan, React Native developer"
             />
           </div>
         </div>
@@ -85,7 +78,7 @@ export default function About() {
           >
             <div className="flex items-center gap-3">
               <BriefcaseIcon className="h-6 w-6 text-primary" />
-              <h3 className="text-2xl font-bold">Experience</h3>
+              <h3 className="font-heading text-2xl font-bold">Experience</h3>
             </div>
             <ul className="mt-6 space-y-4">
               {experience.map((job) => (
@@ -115,7 +108,7 @@ export default function About() {
           >
             <div className="flex items-center gap-3">
               <AcademicCapIcon className="h-6 w-6 text-primary" />
-              <h3 className="text-2xl font-bold">Education</h3>
+              <h3 className="font-heading text-2xl font-bold">Education</h3>
             </div>
             <ul className="mt-6 space-y-4">
               {education.map((item) => (

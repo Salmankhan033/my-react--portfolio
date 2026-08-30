@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center gap-8 lg:flex-row lg:justify-between">
           <div className="text-center lg:text-left">
-            <p className="text-xl font-bold">Salman Khan</p>
+            <p className="font-heading text-xl font-bold">Salman Khan</p>
             <p className="mt-1 text-sm opacity-70">
               React Native & Web Developer
             </p>

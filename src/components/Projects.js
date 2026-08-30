@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-scroll";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -37,11 +35,36 @@ function Avatar({ src, alt }) {
     <img
       src={src}
       alt={alt}
-      className="w-14 h-14 rounded-full object-cover"
+      className="w-14 h-14 rounded-full object-cover ring-2 ring-primary/20"
       loading="lazy"
       referrerPolicy="no-referrer"
       onError={() => setErrored(true)}
     />
+  );
+}
+
+function StarRow() {
+  return (
+    <div className="flex justify-center gap-1 text-accent" aria-hidden="true">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+          <path d="M10 1.5l2.63 5.33 5.87.85-4.25 4.14 1 5.85L10 14.9l-5.25 2.77 1-5.85L1.5 7.68l5.87-.85L10 1.5z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+function QuoteMark() {
+  return (
+    <svg
+      viewBox="0 0 32 24"
+      fill="currentColor"
+      className="mx-auto h-8 w-8 text-primary/25"
+      aria-hidden="true"
+    >
+      <path d="M9.352 24C4.456 24 0 19.928 0 13.784 0 6.973 5.36 1.44 12.487 0l1.936 3.99C9.144 5.487 6.29 8.607 6.29 12.24c0 .5.079.85.157 1.15.706-.5 1.647-.756 2.667-.756 3.176 0 5.607 2.55 5.607 5.65C14.72 21.5 12.213 24 9.352 24zm18.24 0c-4.897 0-9.352-4.072-9.352-10.216 0-6.811 5.36-12.344 12.487-13.784L32.663 3.99c-5.278 1.497-8.132 4.617-8.132 8.25 0 .5.079.85.158 1.15.706-.5 1.647-.756 2.666-.756 3.177 0 5.608 2.55 5.608 5.65C32.963 21.5 30.454 24 27.592 24z" />
+    </svg>
   );
 }
 
@@ -765,7 +788,7 @@ function ProjectCard({ project, index, featured = false }) {
               <ProjectIcon project={project} size="featured" />
               <div className="min-w-0 flex-1">
                 <PlatformBadges project={project} />
-                <h3 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">
+                <h3 className="mt-3 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
                   {project.name}
                 </h3>
               </div>
@@ -813,7 +836,7 @@ function ProjectCard({ project, index, featured = false }) {
           <ProjectIcon project={project} />
           <div className="min-w-0 flex-1 pt-1">
             <PlatformBadges project={project} />
-            <h3 className="mt-2 text-base font-bold leading-snug sm:text-lg">
+            <h3 className="mt-2 font-heading text-base font-bold leading-snug sm:text-lg">
               {project.name}
             </h3>
           </div>
@@ -850,15 +873,18 @@ const FILTER_OPTIONS = [
   { id: "android", label: "Android Only" },
 ];
 
+const testimonialTabs = [
+  { id: "fiverr", label: "Fiverr", data: fiverrTestimonials },
+  { id: "upwork", label: "Upwork", data: upworkTestimonials },
+  { id: "linkedin", label: "LinkedIn", data: linkedinTestimonials },
+];
+
 export default function Projects() {
   const [visibleProjects, setVisibleProjects] = useState(8);
   const [platformFilter, setPlatformFilter] = useState("all");
+  const [activeTestimonialTab, setActiveTestimonialTab] = useState("fiverr");
 
   const validProjects = projects.filter(Boolean);
-
-  useEffect(() => {
-    AOS.init({ duration: 2000 });
-  }, []);
 
   const handleViewMore = () => {
     setVisibleProjects((prev) => prev + 8);
@@ -878,35 +904,19 @@ export default function Projects() {
     filteredProjects[0];
   const gridProjects = filteredProjects.filter((p) => p !== featuredProject);
 
+  const activeTestimonials =
+    testimonialTabs.find((tab) => tab.id === activeTestimonialTab)?.data ??
+    fiverrTestimonials;
+
   const sliderSettings = {
     dots: true,
-    infinite: fiverrTestimonials.length > 1,
+    infinite: activeTestimonials.length > 1,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: fiverrTestimonials.length > 1,
-    autoplaySpeed: 3000,
-  };
-  const sliderSettings2 = {
-    dots: true,
-    infinite: upworkTestimonials.length > 1,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: upworkTestimonials.length > 1,
-    autoplaySpeed: 3000,
-  };
-  const sliderSettings3 = {
-    dots: true,
-    infinite: linkedinTestimonials.length > 1,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: linkedinTestimonials.length > 1,
-    autoplaySpeed: 3000,
+    autoplay: activeTestimonials.length > 1,
+    autoplaySpeed: 4000,
   };
 
   return (
@@ -914,7 +924,7 @@ export default function Projects() {
       <div className="mx-auto max-w-2xl px-6 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
         <div className="text-center lg:text-left">
           <h2 className="text-lg leading-7 opacity-80">Browse my recent</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
+          <p className="mt-2 font-heading text-4xl font-bold tracking-tight sm:text-6xl">
             Projects
           </p>
           <p className="mt-4 max-w-2xl text-sm leading-7 opacity-70 sm:text-base">
@@ -946,7 +956,7 @@ export default function Projects() {
         {featuredProject && (
           <div className="mt-10">
             <div className="mb-6 flex items-center justify-between">
-              <p className="text-xl font-bold">Featured Project</p>
+              <p className="font-heading text-xl font-bold">Featured Project</p>
               <span className="badge badge-primary badge-outline">Highlight</span>
             </div>
             <ProjectCard project={featuredProject} featured />
@@ -967,7 +977,7 @@ export default function Projects() {
 
         <div className="mt-14">
           <div className="mb-6 flex items-center justify-between">
-            <p className="text-xl font-bold">More Projects</p>
+            <p className="font-heading text-xl font-bold">More Projects</p>
             <span className="badge badge-secondary badge-outline">
               {filteredProjects.length} apps
             </span>
@@ -1000,86 +1010,61 @@ export default function Projects() {
           )}
         </div>
         <div className="mt-32 mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7 opacity-80">
-            kind respect from clients
+          <h2 className="text-lg leading-7 opacity-80">
+            Kind words from clients
           </h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
-            Fiverr
+          <p className="mt-2 font-heading text-4xl font-bold tracking-tight sm:text-6xl">
+            What Clients Say
+          </p>
+          <p className="mt-4 text-sm leading-7 opacity-70 sm:text-base">
+            Real reviews from Fiverr, Upwork and LinkedIn — pulled straight
+            from client profiles.
           </p>
         </div>
-        <div className="mt-10 rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-xl shadow-primary/5">
-          <Slider {...sliderSettings}>
-            {fiverrTestimonials.map((testimonial) => (
-              <div key={testimonial.id} className="text-center p-8">
-                {/* Message */}
-                <p className="text-lg italic mb-4">" {testimonial.message} "</p>
-                <div className="flex justify-center mt-8 mb-2">
+
+        <div className="mt-8 flex flex-wrap justify-center gap-2">
+          {testimonialTabs.map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActiveTestimonialTab(tab.id)}
+              className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+                activeTestimonialTab === tab.id
+                  ? "bg-primary text-primary-content shadow-lg shadow-primary/20"
+                  : "border border-base-300/60 bg-base-200/60 hover:border-primary/40"
+              }`}
+            >
+              {tab.label}
+              <span
+                className={`ml-2 rounded-full px-2 py-0.5 text-xs ${
+                  activeTestimonialTab === tab.id
+                    ? "bg-primary-content/20"
+                    : "bg-base-300/60"
+                }`}
+              >
+                {tab.data.length}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-8 rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-xl shadow-primary/5">
+          <Slider key={activeTestimonialTab} {...sliderSettings}>
+            {activeTestimonials.map((testimonial) => (
+              <div key={testimonial.id} className="px-6 py-10 text-center sm:px-16">
+                <QuoteMark />
+                <p className="mx-auto mt-2 max-w-2xl text-base leading-7 italic opacity-90 sm:text-lg">
+                  "{testimonial.message}"
+                </p>
+                <div className="mt-6">
+                  <StarRow />
+                </div>
+                <div className="mt-4 flex justify-center">
                   <Avatar src={testimonial.imageSrc} alt={testimonial.name} />
                 </div>
-
-                <div className="flex justify-center items-center">
-                  <div>
-                    <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-sm opacity-70">{testimonial.title}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
-        {/* upwork rewiew */}
-
-        <div className="mt-32 mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7 opacity-80">
-            kind respect from clients
-          </h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
-            Upwork Talent
-          </p>
-        </div>
-        <div className="mt-10 rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-xl shadow-primary/5">
-          <Slider {...sliderSettings2}>
-            {upworkTestimonials.map((testimonial) => (
-              <div key={testimonial.id} className="text-center p-8">
-                {/* Message */}
-                <p className="text-lg italic mb-4">" {testimonial.message} "</p>
-                <div className="flex justify-center mt-8 mb-2">
-                  <Avatar src={testimonial.imageSrc} alt={testimonial.name} />
-                </div>
-
-                <div className="flex justify-center items-center">
-                  <div>
-                    <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-sm opacity-70">{testimonial.title}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
-        <div className="mt-32 mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7 opacity-80">
-            kind respect from clients
-          </h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
-            Linkedin
-          </p>
-        </div>
-        <div className="mt-10 rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-xl shadow-primary/5">
-          <Slider {...sliderSettings3}>
-            {linkedinTestimonials.map((testimonial) => (
-              <div key={testimonial.id} className="text-center p-8">
-                {/* Message */}
-                <p className="text-lg italic mb-4">" {testimonial.message} "</p>
-                <div className="flex justify-center mt-8 mb-2">
-                  <Avatar src={testimonial.imageSrc} alt={testimonial.name} />
-                </div>
-
-                <div className="flex justify-center items-center">
-                  <div>
-                    <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-sm opacity-70">{testimonial.title}</p>
-                  </div>
+                <div className="mt-3">
+                  <p className="font-heading font-bold">{testimonial.name}</p>
+                  <p className="text-sm opacity-70">{testimonial.title}</p>
                 </div>
               </div>
             ))}
